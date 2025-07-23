@@ -1,0 +1,5 @@
+name: 'news'
+type: module
+description: 'Page actualités sans Views'
+package: Custom
+core_version_requirement: ^10 || ^11

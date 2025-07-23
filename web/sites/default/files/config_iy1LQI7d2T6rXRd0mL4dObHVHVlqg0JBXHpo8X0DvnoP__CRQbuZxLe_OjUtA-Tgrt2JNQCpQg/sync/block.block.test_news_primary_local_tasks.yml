@@ -1,0 +1,22 @@
+uuid: 4df9e808-5d4f-4e00-a5c3-a77299e4c355
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - test_news
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: test_news_primary_local_tasks
+theme: test_news
+region: highlighted
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

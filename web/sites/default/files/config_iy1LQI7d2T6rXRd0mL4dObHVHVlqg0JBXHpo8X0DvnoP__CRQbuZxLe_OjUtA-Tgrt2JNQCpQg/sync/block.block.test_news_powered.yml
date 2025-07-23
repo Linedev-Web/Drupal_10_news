@@ -1,0 +1,22 @@
+uuid: 43426f3b-4e99-4dbf-b532-8aac67750541
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - test_news
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: test_news_powered
+theme: test_news
+region: footer_bottom
+weight: -7
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: d95d94cb-860a-434c-8fd1-c54a0fdab0db
+langcode: fr
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - test_news
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: test_news_help
+theme: test_news
+region: content_above
+weight: -6
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

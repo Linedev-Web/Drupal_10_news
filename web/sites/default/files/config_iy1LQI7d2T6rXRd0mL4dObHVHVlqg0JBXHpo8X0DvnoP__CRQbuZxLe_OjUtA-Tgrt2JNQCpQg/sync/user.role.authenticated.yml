@@ -1,0 +1,32 @@
+uuid: 2ff78152-00be-4d6e-8df2-161b7fa92a2c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - comment
+    - contact
+    - file
+    - filter
+    - media
+    - search
+    - shortcut
+    - system
+_core:
+  default_config_hash: cFrlqjtkTfvY3RGccjJkPf1SGIfJ942IrxTLWAO4mgA
+id: authenticated
+label: 'Authenticated user'
+weight: -8
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access shortcuts'
+  - 'access site-wide contact form'
+  - 'delete own files'
+  - 'post comments'
+  - 'search content'
+  - 'skip comment approval'
+  - 'use text format basic_html'
+  - 'view media'

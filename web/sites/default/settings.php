@@ -786,8 +786,8 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * @see \Drupal\Core\Extension\ExtensionDiscovery::scanDirectory()
  */
 $settings['file_scan_ignore_directories'] = [
-  'node_modules',
-  'bower_components',
+    'node_modules',
+    'bower_components',
 ];
 
 /**
@@ -888,15 +888,16 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
  *
  * Keep this code block at the end of this file to take full effect.
  */
-#
-# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-#   include $app_root . '/' . $site_path . '/settings.local.php';
-# }
-$databases['default']['default'] = array (
-  'database' => 'C:/Environnement-dev/laragon/www/Drupal_10_new/web/core/database/site.sqlite',
-  'prefix' => '',
-  'driver' => 'sqlite',
-  'namespace' => 'Drupal\\sqlite\\Driver\\Database\\sqlite',
-  'autoload' => 'core/modules/sqlite\\src\\Driver\\Database\\sqlite\\',
+
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+    include $app_root . '/' . $site_path . '/settings.local.php';
+}
+
+$databases['default']['default'] = array(
+    'database' => 'C:/Environnement-dev/laragon/www/Drupal_10_new/web/core/database/site.sqlite',
+    'prefix' => '',
+    'driver' => 'sqlite',
+    'namespace' => 'Drupal\\sqlite\\Driver\\Database\\sqlite',
+    'autoload' => 'core/modules/sqlite\\src\\Driver\\Database\\sqlite\\',
 );
 $settings['config_sync_directory'] = 'sites/default/files/config_iy1LQI7d2T6rXRd0mL4dObHVHVlqg0JBXHpo8X0DvnoP__CRQbuZxLe_OjUtA-Tgrt2JNQCpQg/sync';

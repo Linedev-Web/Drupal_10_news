@@ -1,0 +1,7 @@
+news.listing:
+  path: '/news'
+  defaults:
+    _controller: '\Drupal\news\Controller\NewsController::listing'
+    _title: 'Actualités'
+  requirements:
+    _permission: 'access content'

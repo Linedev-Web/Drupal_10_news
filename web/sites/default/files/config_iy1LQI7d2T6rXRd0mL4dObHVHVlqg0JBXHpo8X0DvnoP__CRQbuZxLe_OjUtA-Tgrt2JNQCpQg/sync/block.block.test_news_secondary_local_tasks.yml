@@ -1,0 +1,22 @@
+uuid: 9c8adf36-4005-4597-b3a3-99a629a389c2
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - test_news
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: test_news_secondary_local_tasks
+theme: test_news
+region: highlighted
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

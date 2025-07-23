@@ -1,0 +1,22 @@
+uuid: 811c22b9-c21e-411a-8b68-9c6e32caf680
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - test_news
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: test_news_content
+theme: test_news
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

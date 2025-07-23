@@ -1,0 +1,1 @@
+window.drupalTranslations = {"strings":{"":{"Scheduled for publishing":"Planifi\u00e9 pour publication","Scheduled for unpublishing":"Planifi\u00e9 pour d\u00e9publication","Not scheduled":"Non planifi\u00e9","Publishing enabled":"Publication activ\u00e9e","Unpublishing enabled":"D\u00e9publication activ\u00e9e"}},"pluralFormula":{"0":0,"1":0,"default":1}};

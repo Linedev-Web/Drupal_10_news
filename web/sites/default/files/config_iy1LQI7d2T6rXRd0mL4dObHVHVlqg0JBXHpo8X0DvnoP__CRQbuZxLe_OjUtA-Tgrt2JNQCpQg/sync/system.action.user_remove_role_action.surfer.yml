@@ -1,0 +1,14 @@
+uuid: aca87d90-57f4-4e16-a799-185a89d430e3
+langcode: fr
+status: true
+dependencies:
+  config:
+    - user.role.surfer
+  module:
+    - user
+id: user_remove_role_action.surfer
+label: 'Remove the Internaute role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: surfer

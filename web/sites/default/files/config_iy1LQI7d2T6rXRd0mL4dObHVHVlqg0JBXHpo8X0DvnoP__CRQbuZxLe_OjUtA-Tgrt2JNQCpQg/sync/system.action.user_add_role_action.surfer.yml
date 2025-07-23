@@ -1,0 +1,14 @@
+uuid: 2cdf4a1a-0399-4dff-8da5-3116de1c9faa
+langcode: fr
+status: true
+dependencies:
+  config:
+    - user.role.surfer
+  module:
+    - user
+id: user_add_role_action.surfer
+label: 'Add the Internaute role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: surfer

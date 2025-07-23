@@ -1,0 +1,22 @@
+uuid: 90f5773c-b82c-434a-aff3-2d9b3cb1bd9e
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - test_news
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: test_news_breadcrumbs
+theme: test_news
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

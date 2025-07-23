@@ -1,0 +1,60 @@
+<?php
+
+/**
+ * @file
+ * Contains news.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Template\Attribute;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_help().
+ */
+function news_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.news':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The News module provides a custom page to display news articles.') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function news_theme() {
+  return [
+    'news_teaser' => [
+      'variables' => [
+        'node' => NULL,
+        'attributes' => NULL,
+      ],
+      'template' => 'news-teaser',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for news teaser templates.
+ *
+ * Default template: news-teaser.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - node: The node entity.
+ */
+function template_preprocess_news_teaser(array &$variables) {
+  $variables['attributes'] = $variables['attributes'] ?: new Attribute();
+  
+  // Ensure we have a node object
+  if ($variables['node'] instanceof NodeInterface) {
+    $node = $variables['node'];
+    
+    // Add view mode specific suggestions
+    $variables['theme_hook_suggestions'][] = 'news_teaser__' . $node->bundle();
+    $variables['theme_hook_suggestions'][] = 'news_teaser__' . $node->id();
+  }
+}

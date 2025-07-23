@@ -1,0 +1,20 @@
+uuid: 17ddfbc6-2e31-4149-ad3c-22ada1c7a44a
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - test_news
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: test_news_primary_admin_actions
+theme: test_news
+region: highlighted
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }
