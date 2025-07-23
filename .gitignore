@@ -4,3 +4,8 @@
 /.DS_Store
 /.vscode/
 /.idea/
+
+
+# Ignore tout sauf .gitkeep
+web/sites/default/files/*
+!web/sites/default/files/.gitkeep

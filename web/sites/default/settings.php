@@ -900,4 +900,4 @@ $databases['default']['default'] = [
     'namespace' => 'Drupal\\sqlite\\Driver\\Database\\sqlite',
     'autoload' => 'core/modules/sqlite/src/Driver/Database/sqlite/',
 ];
-$settings['config_sync_directory'] = 'sites/default/files/config_iy1LQI7d2T6rXRd0mL4dObHVHVlqg0JBXHpo8X0DvnoP__CRQbuZxLe_OjUtA-Tgrt2JNQCpQg/sync';
+$settings['config_sync_directory'] = '../config/sync';
