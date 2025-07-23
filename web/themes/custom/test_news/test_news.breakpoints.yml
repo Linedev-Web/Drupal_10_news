@@ -1,0 +1,13 @@
+test_news.mobile:
+  label: Mobile
+  mediaQuery: 'all and (max-width: 767px)'
+  weight: 0
+  multipliers:
+    - 1x
+
+test_news.desktop:
+  label: Desktop
+  mediaQuery: 'all and (min-width: 768px)'
+  weight: 1
+  multipliers:
+    - 1x

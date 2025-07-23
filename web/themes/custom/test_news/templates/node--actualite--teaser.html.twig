@@ -1,0 +1,71 @@
+{#
+/**
+ * @file
+ * Theme override to display a node of type actualite in teaser view mode.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ * - label: The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to exclude the field.
+ * - url: Direct URL of the current node.
+ * - attributes: HTML attributes for the containing element.
+ *
+ * @see template_preprocess_node()
+ */
+#}
+{% set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    'node--view-mode-' ~ view_mode|clean_class,
+    'news-teaser',
+    'card-news',
+    'teaser'
+] %}
+
+<article{{ attributes.addClass(classes) }}>
+    <header>
+        <div class="teaser__top">
+            {% if node.field_media.entity.field_media_image is not empty %}
+                <div class="teaser__image news-teaser__media">
+                    <img
+                            src="{{ file_url(node.field_media.entity.field_media_image.entity.uri.value) }}"
+                            alt="{{ node.field_media.entity.field_media_image.alt|default('') }}"
+                    />
+                </div>
+            {% endif %}
+
+            <h2 class="news-teaser__title teaser__title">
+                <a href="{{ url }}" class="title-helper">{{ label }}</a>
+            </h2>
+        </div>
+
+        <div class="teaser__meta">
+            {% if node.field_date.value %}
+                <div class="news-teaser__date">
+                    {{ node.field_date.value|date('Y-m-d') }}
+                </div>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="teaser__content news-teaser__content">
+        {% if content.body %}
+            <div class="news-teaser__summary">
+                {{ content.body|render|striptags|length > 200 ? content.body|render|striptags|slice(0, 200) ~ '...' : content.body|render|striptags }}
+            </div>
+        {% endif %}
+
+        {% if content.field_tag %}
+            <div class="news-teaser__tags">
+                <span class="news-teaser__tags-label">{{ 'Tags:'|t }}</span>
+                {% for key, item in node.field_tag %}
+                    {% if item.entity %}
+                        <span class="news-teaser__tag">{{ item.entity.label }}</span>{% if not loop.last %}, {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</article>

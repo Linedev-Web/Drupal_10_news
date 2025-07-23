@@ -1,0 +1,95 @@
+{#
+/**
+ * @file
+ * Theme override to display a node of type actualite in full view mode.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ * - label: (optional) The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to exclude the field.
+ * - url: Direct URL of the current node.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *
+ * @see template_preprocess_node()
+ */
+#}
+{#{% set layout = 'content-narrow' %}#}
+
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    layout ? 'grid-full',
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'news-full',
+    'page-news'
+  ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+  <header class="layout--{{ layout|clean_class }}">
+    {{ title_prefix }}
+    {% if label and not page %}
+      <h2{{ title_attributes.addClass('node__title', 'title-helper') }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h2>
+    {% else %}
+      <h1{{ title_attributes.addClass('node__title', 'title-helper') }}>{{ label }}</h1>
+    {% endif %}
+    {{ title_suffix }}
+    
+    <div class="node__meta">
+      {% if node.field_date.value %}
+        <div class="news-full__date">
+          {{ node.field_date.value|date('Y-m-d') }}
+        </div>
+      {% endif %}
+      
+      {% if node.field_tag.entity %}
+        <div class="news-full__tags">
+          <span class="news-full__tags-label">{{ 'Tags:'|t }}</span>
+          {% for key, item in node.field_tag %}
+            {% if item.entity %}
+              <span class="news-full__tag">{{ item.entity.label }}</span>{% if not loop.last %}, {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </header>
+  
+  <div{{ content_attributes.addClass('node__content', 'news-full__content', 'layout--' ~ layout|clean_class) }}>
+    {% if content.field_media %}
+      <div class="news-full__media">
+        {{ content.field_media }}
+      </div>
+    {% endif %}
+    
+    <div class="news-full__body text-content">
+      {{ content.body }}
+    </div>
+    
+    {# Hide the fields we've already rendered #}
+    {{ content|without('field_media', 'body', 'field_tag', 'field_date', 'comment') }}
+  </div>
+  
+  {% if content.comment %}
+    <div id="comments" class="layout--{{ layout|clean_class }}">
+      {{ content.comment }}
+    </div>
+  {% endif %}
+</article>

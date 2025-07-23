@@ -1,0 +1,15 @@
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      css/styles.css: {}
+  dependencies:
+    - olivero/global-styling
+
+global-scripts:
+  version: 1.x
+  js:
+    js/news.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
